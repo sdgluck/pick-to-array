@@ -39,3 +39,9 @@ test('pick from nested object', (t) => {
   t.equal(result[0], 123)
   t.end()
 })
+
+test('pick object', (t) => {
+  const result = pickToArray({ entity: { id: 123 } }, 'entity')
+  t.equal(result[0].id, 123)
+  t.end()
+})

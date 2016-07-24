@@ -41,11 +41,11 @@ function pickToArray (entities, property, deep) {
     }
 
     forEach(obj, function (value, key) {
-      if (deep && (value instanceof Array || isPlainObject(value))) {
-        result = result.concat(pickToArray(value, property, deep))
-      } else if (key === property) {
+      if (key === property) {
         result.push(value)
         return false
+      } else if (deep && (value instanceof Array || isPlainObject(value))) {
+        result = result.concat(pickToArray(value, property, deep))
       }
     })
 
