@@ -19,8 +19,18 @@ test('pick from single object', (t) => {
 
 test('shallow pick from array of objects', (t) => {
   const result = pickToArray([{ id: 123 }, { id: 456, entity: { id: 789 } }], 'id')
+  t.equal(result.length, 2)
   t.equal(result[0], 123)
   t.equal(result[1], 456)
+  t.end()
+})
+
+test('deep pick from array of objects', (t) => {
+  const result = pickToArray([{ id: 123 }, { id: 456, entity: { id: 789 } }], 'id', true)
+  t.equal(result.length, 3)
+  t.equal(result[0], 123)
+  t.equal(result[1], 456)
+  t.equal(result[2], 789)
   t.end()
 })
 
