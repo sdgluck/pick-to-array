@@ -1,0 +1,34 @@
+{
+  "name": "pick-to-array",
+  "version": "0.1.0",
+  "description": "Pick all values of a property in one or more objects",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard index.js",
+    "test": "node test.js",
+    "prepublish": "npm run -s lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdgluck/pick-to-array.git"
+  },
+  "author": "Sam Gluck <sdgluck@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sdgluck/pick-to-array/issues"
+  },
+  "keywords": [
+    "pick",
+    "to",
+    "array",
+    "object",
+    "property",
+    "value",
+    "values"
+  ],
+  "homepage": "https://github.com/sdgluck/pick-to-array#readme",
+  "devDependencies": {
+    "standard": "^7.1.2",
+    "tape": "^4.5.1"
+  }
+}
