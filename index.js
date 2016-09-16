@@ -33,6 +33,10 @@ function forEach (obj, fn) {
  * @returns {Array} Values
  */
 function pickToArray (entities, property, deep) {
+  if (!(entities instanceof Array) && !isPlainObject(entities)) {
+    throw new Error('Expecting entity to be object or array of objects')
+  }
+
   var arr = entities instanceof Array ? entities : [entities]
 
   return arr.reduce(function (result, obj) {
