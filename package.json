@@ -1,6 +1,6 @@
 {
   "name": "pick-to-array",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pick all values of a property in one or more objects",
   "main": "index.js",
   "scripts": {

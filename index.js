@@ -41,7 +41,7 @@ function pickToArray (entities, property, deep) {
 
   return arr.reduce(function (result, obj) {
     if (!(obj instanceof Array) && !isPlainObject(obj)) {
-      throw new Error('Expecting entity to be object or array of objects')
+      return result
     }
 
     forEach(obj, function (value, key) {
