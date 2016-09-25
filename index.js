@@ -28,13 +28,15 @@ function forEach (obj, fn) {
  * Pick the value of the `property` property from each object in `entities`.
  * Operation is recursive with `deep == true`.
  * @param {Array|Object} entities An array of objects or a single object
- * @param {String} property Property name to pick
+ * @param {String|Array} property Property name(s) to pick
  * @param {Boolean} [deep] Pick from nested properties, default false
  * @returns {Array} Values
  */
 function pickToArray (entities, property, deep) {
   if (!(entities instanceof Array) && !isPlainObject(entities)) {
     throw new Error('Expecting entity to be object or array of objects')
+  } else if (typeof property !== 'string' && !(property instanceof Array)) {
+    throw new Error('Expecting property to be string or array')
   }
 
   var arr = entities instanceof Array ? entities : [entities]
@@ -45,9 +47,15 @@ function pickToArray (entities, property, deep) {
     }
 
     forEach(obj, function (value, key) {
-      if (key === property) {
+      if (
+        (property instanceof Array && property.indexOf(key) !== -1) ||
+        (key === property)
+      ) {
         result.push(value)
-        return false
+
+        if (!(property instanceof Array)) {
+          return false
+        }
       } else if (deep && (value instanceof Array || isPlainObject(value))) {
         result = result.concat(pickToArray(value, property, deep))
       }

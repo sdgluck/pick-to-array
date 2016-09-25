@@ -45,3 +45,10 @@ test('pick object', (t) => {
   t.equal(result[0].id, 123)
   t.end()
 })
+
+test('pick multiple properties', (t) => {
+  const result = pickToArray({ id: 123, slug: 456 }, ['id', 'slug'])
+  t.equal(result[0], 123)
+  t.equal(result[1], 456)
+  t.end()
+})

@@ -38,7 +38,7 @@ define(['pick-to-array'], function (pickToArray) {/*...*/})
 Pick all values of a property in one or more objects.
 
 - __entities__ {Array|Object} Entities or entity to pick from 
-- __property__ {String} Property to pick value from
+- __property__ {String|Array} Property name(s) to pick value from
 - [__deep__] {Boolean} Pick from nested properties 
 
 Returns an array of all the values.
